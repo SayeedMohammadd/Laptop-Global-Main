@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-LogIn</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>log-in</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              log-in
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<!-- Small Breadcrumb -->
+
+<!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+<div class="main-content-area clearfix">
+   <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+   <section class="section-padding pattern-bg error-page">
+      <!-- Main Container -->
+      <div class="container">
+         <!-- Row -->
+         <div class="row">
+            <!-- Middle Content Area -->
+            <div class="col-md-5 col-md-push-7 col-sm-6 col-xs-12">
+               <!--  Form -->
+               <div class="form-grid">
+                 <form method="post" action="{% url 'login' %}">
+                   {% csrf_token %}
+                     <div class="form-group">
+                        <label>User Name</label>
+                        <input placeholder="Your User Name" class="form-control" type="text" name="username" id="username" autofocus>
+                     </div>
+                     <div class="form-group">
+                        <label>Password</label>
+                        <input placeholder="Your Password" class="form-control" type="password" name="password" id="password">
+                     </div>
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-xs-12">
+                              <div class="skin-minimal">
+                                 <ul class="list">
+                                    <li>
+                                       <input type="checkbox" id="minimal-checkbox-1">
+                                       <label for="minimal-checkbox-1">Remember Me</label>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     {% if error  %}
+                      <center><label style="color:red">{{error}}</label></center>
+                     {% endif %}
+                     <br>
+                     <button class="btn btn-primary btn-lg btn-block">Login With Us</button>
+                  </form>
+               </div>
+               <!-- Form -->
+            </div>
+            <div class="col-md-7  col-md-pull-5  col-xs-12 col-sm-6">
+               <div class="heading-panel">
+                  <h3 class="main-title text-center">
+                     Sign In to your Laptop Global account
+                  </h3>
+               </div>
+               <div class="content-info login-info">
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Laptop Global Predictions</h3>
+
+                           Predict the Market Value of any Laptop within Seconds!
+                                                
+
+                     </div>
+                  </div><br>
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Over Vision</h3>
+
+                          We make Buying and Selling of Electronics Including Laptops a Fast and Easy Process. We Try our Best to Improve our Prediction Algorithm over the time.
+
+                     </div>
+                  </div>
+                  <span class="arrowsign hidden-sm hidden-xs"><img src="images\arrow.png" alt=""></span>
+               </div>
+            </div>
+            <!-- Middle Content Area  End -->
+         </div>
+         <!-- Row End -->
+      </div>
+      <br><br><br><br>
+      <br><br>
+      <!-- Main Container End -->
+   </section>
+{% endblock %}

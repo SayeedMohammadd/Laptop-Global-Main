@@ -1,0 +1,108 @@
+{% load static %}
+<header id="header" class="header">
+  <div class="container">
+    <div class="row ">
+      <div class="col-xs-12">
+        <div class="header-cont clearfix">
+          <a href="{% url 'index' %}" class="logo"> <img src="{% static 'assets/images/Mylogo.png' %}" alt=""/> </a>
+          <div class="header-info">
+            <div class="social-content clearfix">
+              <div class="contact-det hidden-xs">
+                <ul>
+                  <li>
+                    <a href="#">The Guide</a>/
+                  </li>
+                  <li>
+                    <a href="{% url 'about' %}">Our Company</a>/
+                  </li>
+                  <li>
+                    <a href="tel:+9469093843">+94 76 90 93 843</a>/
+                  </li>
+                  <li>
+                    <a href="mailto:buddhika.a.mahesh@gmail.com">buddhika.a.mahesh@gmail.com</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="social-det">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                  </li>
+
+                </ul>
+
+                <div class="login">
+
+
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'profile' user.username %}"><span>{{ user.username }}</span><i class="fa fa-user " aria-hidden="true"></i></a>&nbsp;&nbsp;
+                  <a href="javascript:{document.getElementById('logout').submit()}"><span>Logout</span><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                  {% else  %}
+                  <a href="{% url 'login' %}"><span>Login</span><i class="fa fa-lock" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                  <a href="{% url 'signup' %}"><span>Signup</span><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                  {% endif %}
+
+
+                </div>
+              </div>
+            </div>
+
+            <nav class="navbar">
+
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navigation clearfix">
+
+                  <li class="">
+                    <a href="{% url 'index' %}">HOME</a>
+                  </li>
+                  <li class="drop-down-parent">
+                    <a href="{% url 'ads' %}">LISTINGS</a>
+                  </li>
+
+                  <li class="drop-down-parent">
+                    <a href="{% url 'predict' %}">PREDICT MARKET VALUE</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'about' %}">ABOUT </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'contact' %}">Contact</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'publishing' %}"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Advertise With Us</a>
+                  </li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+
+            </nav>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<form class="" action="{% url 'logout' %}" method="POST" id="logout">
+  {% csrf_token %}
+  <input type="hidden" name="" value="">
+</form>

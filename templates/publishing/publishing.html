@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-Publishing</title>
+  <link href="{% static "map/css/vendor/leaflet.css" %}" type="text/css" media="screen" rel="stylesheet" />
+  <link href="{% static "map/css/osm_field.css" %}" type="text/css" media="screen" rel="stylesheet" />
+
+  <!-- or from a CDN -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="{% static "map/js/vendor/leaflet.js" %}"></script>
+  <script type="text/javascript" src="{% static "map/js/osm_field.js" %}"></script>
+  <script src="{% static 'map/js/jquery-3.3.1.min.js' %} "></script>
+  <script src="{% static 'map/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'map/js/lightbox.min.js' %} "></script>
+  <script src="{% static 'map/js/main.js' %} "></script>
+  <script src="{% static 'map/js/navscripts.js' %} "></script>
+
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>Add Listings</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              Post Ads
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+   </header>
+      <body>
+         <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+         <div class="main-content-area clearfix">
+            <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+            <section class="section-padding pattern_dots gray ">
+               <!-- Main Container -->
+               <div class="container">
+                  <!-- Row -->
+                  <div class="row">
+                     <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                        <!-- end post-padding -->
+                        <div class="post-ad-form postdetails">
+                           <div class="heading-panel">
+                              <h3 class="main-title text-left">
+                                 Post Your Ad
+                              </h3>
+                           </div>
+                           <p class="lead">Please Enter the Required Details of Your Laptop</p>
+                           {% if error  %}
+                            <center><label style="color:red">{{error}}</label></center>
+                           {% endif %}
+                           {{ form.media }}
+                           <form class="submit-form" method="POST" action="{% url 'publishing' %}" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="row">
+                              <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                                   {{ form.title|as_crispy_field }}
+                              </div>
+                           </div>
+                           <div class="row">
+                              <!-- Type  -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.type|as_crispy_field }}
+                              </div>
+                              <!-- Brand  -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.brand|as_crispy_field }}
+                              </div>
+                           </div>
+                           <!-- end row -->
+                           <div class="row">
+                              <!-- Model  -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.model|as_crispy_field }}
+                              </div>
+                              <!-- year -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.year|as_crispy_field }}
+                              </div>
+                           </div>
+                           <div class="row">
+                              <!-- Transmission  -->
+                               
+                              <!-- Fuel -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.procesor|as_crispy_field }}
+                              </div>
+                           </div>
+                           <div class="row">
+                             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                {{ form.ram|as_crispy_field }}
+                             </div>
+                             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                {{ form.storage|as_crispy_field }}
+                             </div>
+                           </div>
+                           <!-- Image Upload  -->
+                           <div class="row">
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.image1|as_crispy_field }}
+                              </div>
+
+                           </div>
+                           <!-- end row -->
+                           <!-- Ad Description  -->
+                           <div class="row">
+                              <div class="col-md-12 col-lg-12 col-xs-12  col-sm-12">
+
+                                 {{ form.description|as_crispy_field }}
+                              </div>
+                           </div>
+                           <!-- end row -->
+                           <div class="row">
+                              <!-- condition  -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.condition|as_crispy_field }}
+                              </div>
+                              <!-- category -->
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.category|as_crispy_field }}
+                              </div>
+                           </div>
+                           <!-- end row -->
+                           <div class="row">
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.price|as_crispy_field }}
+                              </div>
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.tel|as_crispy_field }}
+                              </div>
+                           </div>
+                           <!-- end row -->
+                           <div class="row">
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.city|as_crispy_field }}
+                              </div>
+                              <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+
+                                 {{ form.address|as_crispy_field }}
+                              </div>
+                              <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+
+                                 {{ form.location|as_crispy_field }}
+                                 <br><br><br><br><br><br><br><br>
+                              </div>
+
+                              <div style="display: none;" >
+                                {{ form.location_lat|as_crispy_field }}
+                                {{ form.location_lon|as_crispy_field }}
+                              </div>
+
+
+                           </div>
+
+
+                           <input type="reset" value="Clear" class="btn pull-left btn-danger">
+                           <input type="submit" class="btn btn-primary pull-right" name="Publish My Ad">
+                        </form>
+                     </div>
+                     <!-- end post-ad-form-->
+                  </div>
+                  <!-- end col -->
+                  <!-- Right Sidebar -->
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                     <!-- Sidebar Widgets -->
+                     <div class="blog-sidebar">
+                        <!-- Categories -->
+                        <div class="widget">
+                           <div class="widget-heading">
+                              <h4 class="panel-title"><a>Saftey Tips </a></h4>
+                           </div>
+                           <div class="widget-content">
+                              <p class="lead">Posting an Ad is free! However, all ads must follow our rules:</p>
+                              <ol>
+                                 <li>Make sure you post in the correct category.</li>
+                                 <li>Do not post the same ad more than once or repost an ad within 48 hours.</li>
+                                 <li>We reserve the right to delete any advertisement without notice.</li>
+                                 <li>Make sure to Include your Contact Information</li> 
+                                 <li>Laptop Global does not take any responsibility incase of fraud,scam ads.</li>
+                                 <li>Do not Deposit or Send Money Online without actually Meeting the Sellers/Buyers</li>
+                                 <li>We do not guarantee, or assume responsibility for the accuracy or reliability of any information offered by third-party Sellers</li>
+                              </ol>
+                           </div>
+                        </div>
+                        <!-- Latest News -->
+                     </div>
+                     <!-- Sidebar Widgets End -->
+                  </div>
+                  <!-- Middle Content Area  End --><!-- end col -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+            </section>
+   </body>
+
+
+
+{% endblock %}

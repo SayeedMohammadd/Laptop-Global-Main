@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-SignUp</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>Sign Up</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              Sign Up
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+<div class="main-content-area clearfix">
+   <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+   <section class="section-padding pattern-bg error-page">
+      <!-- Main Container -->
+      <div class="container">
+         <!-- Row -->
+         <div class="row">
+            <!-- Middle Content Area -->
+            <div class="col-md-5 col-md-push-7 col-sm-12 col-xs-12">
+               <!--  Form -->
+               <div class="form-grid">
+                  <form method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                     <div class="form-group">
+                        <label>Name</label>
+                        <input placeholder="Enter Your Name" class="form-control" type="text" id="username" name="username" autofocus required>
+                     </div>
+                     <div class="form-group">
+                        <label>Email</label>
+                        <input placeholder="Enter Your Email" class="form-control" type="email" id="email" name="email" required>
+                     </div>
+                     <div class="form-group">
+                        <label>Password</label>
+                        <input placeholder="Password" class="form-control" type="password" id="password" name="password" required>
+                     </div>
+                     <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input placeholder="Confirm Password" class="form-control" type="password" id="cpassword" name="cpassword" required>
+                     </div>
+                     <br>
+                     {% if error  %}
+                      <center><label style="color:red">{{error}}</label></center>
+                     {% endif %}
+                     <br>
+                     <button class="btn btn-primary btn-lg btn-block">Register</button>
+                  </form>
+               </div>
+               <!-- Form -->
+            </div>
+
+            <div class="col-md-7  col-md-pull-5  col-sm-12 col-xs-12">
+               <div class="heading-panel">
+                  <h3 class="main-title text-center">
+                     Create Your Laptop Global Account
+                  </h3>
+               </div>
+               <div class="content-info">
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Easy Advertising</h3>
+
+                           Advertise your Laptop in detail within few Clicks!
+
+                     </div>
+                  </div><br><br>
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Search Advertisements</h3>
+
+                           Search for Advertisements by Location, Type and Condition Easily. 
+
+                     </div>
+                  </div><br><br>
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Laptop Global Prediction</h3>
+
+                            For the First time in Sri Lanka
+
+                     </div>
+                  </div><br><br>
+                  <div class="features">
+
+                     <div class="features-text">
+                        <h3>Our Vision</h3>
+
+                          We always try to make our platform better and hope to serve our users better.
+
+                     </div>
+                  </div>
+                  <span class="arrowsign hidden-sm hidden-xs"><img src="images\arrow.png" alt=""></span>
+               </div>
+            </div>
+            <!-- Middle Content Area  End -->
+         </div>
+         <!-- Row End -->
+      </div>
+      <!-- Main Container End -->
+      <br><br><br><br>
+      <br><br>
+   </section>
+{% endblock %}

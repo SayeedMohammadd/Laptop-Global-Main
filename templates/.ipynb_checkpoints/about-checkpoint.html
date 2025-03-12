@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<title>Avehiz-About</title>
+<header>
+  <section class="main-search parallex">
+   <h1>About</h1>
+  </section>
+  <div class="main-content-area clearfix">
+        <div class="small-breadcrumb">
+           <div class="container">
+              <div class=" breadcrumb-link">
+                 <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a class="active" href="{% url 'about' %}">About Avehiz</a></li>
+                 </ul>
+              </div>
+           </div>
+        </div>
+  </div>
+</header>
+<div class="main-content-area clearfix">
+   <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+   <section class="section-padding pattern_dots">
+      <!-- Main Container -->
+      <div class="container">
+         <!-- Row -->
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+               <div class="about-us-content about">
+                  <div class="heading_about">
+                     <h3 class="main-title text-center">
+                        About Avehiz
+                     </h3>
+                  </div>
+                  <h2></h2>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                  <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+               <div class="google-maps mb-100 map">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9424.243908349286!2d79.9969355010518!3d6.720155046210143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24950572fb107%3A0xb86670f21ef51f64!2zNsKwNDMnMjUuNiJOIDgwwrAwMCcwMC4zIkU!5e0!3m2!1sen!2slk!4v1617544708235!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>
+            </div>
+         </div>
+         <!-- Row End -->
+      </div>
+      <!-- Main Container End -->
+   </section>
+   <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
+   <section class="about-us">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12 no-padding">
+               <!-- service box 3 -->
+               <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
+                  <div class="why-us border-box text-center">
+                     <h5>Why choose us</h5>
+                     <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus. Aliquam accumsan erat id sem placerat tempus.</p>
+                  </div>
+               </div>
+               <!-- service box end -->
+               <!-- service box 3 -->
+               <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
+                  <div class="why-us border-box text-center">
+                     <h5>Our mission</h5>
+                     <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus. Aliquam accumsan erat id sem placerat tempus.</p>
+                  </div>
+                  <!-- end featured-item -->
+               </div>
+               <!-- service box end -->
+               <!-- service box 3 -->
+               <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
+                  <div class="why-us border-box text-center">
+                     <h5>Only creative solutions</h5>
+                     <p>Mauris eros tortor, tristique cursus porttitor et, luctus sed urna. Quisque id libero risus. Aliquam accumsan erat id sem placerat tempus.</p>
+                  </div>
+                  <!-- end featured-item -->
+               </div>
+               <!-- service box end -->
+            </div>
+         </div>
+      </div>
+      <!-- end container -->
+   </section>
+   <div class="clearfix"></div>
+   <!-- =-=-=-=-=-=-= Statistics Counter =-=-=-=-=-=-= -->
+   <div class="funfacts custom-padding parallex">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="number"><span class="timer" data-from="0" data-to="1238" data-speed="1500" data-refresh-interval="5">{{ count_a }}</span>+</div>
+               <h4>Total <span>Ads</span></h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="number"><span class="timer" data-from="0" data-to="1042" data-speed="1500" data-refresh-interval="5">{{ count_u }}</span>+</div>
+               <h4>Active <span>Users</span></h4>
+            </div>
+            <div class="col-lg-3 col-md-0 col-sm-1 col-xs-1">
+            </div>
+         <!-- /.row -->
+        </div>
+      <!-- /.container -->
+     </div>
+
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="number"><span class="timer" data-from="0" data-to="1238" data-speed="1500" data-refresh-interval="5">{{ count_a }}</span>+</div>
+                <h4>Total <span>Ads</span></h4>
+             </div>
+             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="number"><span class="timer" data-from="0" data-to="1042" data-speed="1500" data-refresh-interval="5">0</span>+</div>
+                <h4>Active <span>Users</span></h4>
+             </div>
+          <!-- /.row -->
+         </div>
+       <!-- /.container -->
+      </div>
+     </div>
+   <!-- /.funfacts -->
+   <!-- =-=-=-=-=-=-= Statistics Counter End =-=-=-=-=-=-= -->
+   <img src="{% static 'images\footer-bg1.jpg' %}" class="footer_image">
+{% endblock %}

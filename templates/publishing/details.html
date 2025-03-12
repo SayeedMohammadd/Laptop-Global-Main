@@ -1,0 +1,518 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script src="{% static 'js/custom.js' %}"></script>
+<html lang="en">
+	<head>
+    <link rel="stylesheet" href="{% static 'map\css\vendor\leaflet.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <style media="screen">
+      #mapid {
+         height: 400px;
+         width:  700px;
+         position: relative;
+       }
+    </style>
+
+	</head>
+	<body>
+
+
+
+		<!--Page Wrapper Start-->
+		<div id="wrapper">
+
+			<!--Header Section Start-->
+
+			<!--Header Section End-->
+
+			<!--Content Section Start-->
+			<div id="content">
+				<section class="banner2 banner-margin-zero">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 ">
+								<h1>Laptop Details</h1>
+							</div>
+							<div class="col-xs-12 col-sm-6">
+								<ol class="breadcrumb">
+									<li>
+										<a href="{% url 'index' %}">Home</a>
+									</li>
+									<li>
+										<a href="{% url 'ads' %}">Listings</a>
+									</li>
+									<li class="active">
+										{{ publish.title }}
+									</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="car-view-slider">
+					<div class="container">
+            {% if user.is_authenticated and user == publish.owner %}
+            <div class="ad-share text-center">
+
+                <a class="ad-box update col-md-6 col-sm-6 col-xs-12" href="{% url 'update' publish.id %}"><span class="hidetext"> </span></a> 
+                <a class="ad-box delete col-md-6 col-sm-6 col-xs-12" href="javascript:{document.getElementById('delete').submit()}"><span class="hidetext"> Delete</span></a>
+
+            </div><br>
+           {% endif %}
+
+						<div class="vehicles-head clearfix">
+							<h2>{{ publish.title }}</h2>
+							
+						</div>
+
+						<div class="rental-car">
+              <div class="images">
+                 <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
+                    <!-- Indicators 
+                    <ol class="carousel-indicators">
+                       <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+                       <li data-target="#carousel-2" data-slide-to="1"></li>
+                       <li data-target="#carousel-2" data-slide-to="2"></li>
+                       <li data-target="#carousel-2" data-slide-to="3"></li>
+                       <li data-target="#carousel-2" data-slide-to="4"></li>
+                    </ol> -->
+                    
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                       <div class="item active"> <img src="{{ publish.image1.url }}" alt="Image" style="width:750px !important;height:500px !important;" /> </div>
+                       <!-- <div class="item"> <img src="{{ publish.image2.url }}" alt="Image"> </div>
+                       <div class="item"> <img src="{{ publish.image3.url }}" alt="Image"> </div>
+                       <div class="item"> <img src="{{ publish.image4.url }}" alt="Image"> </div>
+                       <div class="item"> <img src="{{ publish.image5.url }}" alt="Image"> </div> -->
+                    </div>
+                 </div>
+              </div>
+
+							<div class="car-details-wrap">
+								<div class="car-details ">
+									<div class="car-info clearfix">
+                    <div class="row">
+                      <div class="col-xs-6 ">
+                        {{ publish.address }}
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        {{ publish.pub_date }}
+                      </div>
+  									</div>
+                    </div>
+
+
+								</div>
+								<ul class="car-more-info clearfix">
+									<li>
+										<i class="fa fa-laptop" aria-hidden="true"></i>{{ publish.brand }}
+									</li>
+									<li>
+										<i class="fa fa-tachometer" aria-hidden="true"></i>{{ publish.type }}
+									</li>
+									<li>
+										<i class="fa fa-cog" aria-hidden="true"></i>{{ publish.model }}
+									</li>
+									<li>
+										<i class="fa fa-road" aria-hidden="true"></i>{{ publish.category }}
+									</li>
+									<li class="pricebtn">
+										Rs.{{ publish.price }}
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+				<section class="vehicles-description">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12 ">
+								<div class="feature-description-wrap clearfix">
+									<div class="social-media-list">
+										<h4>Share:</h4>
+										<ul class="clearfix">
+											<li>
+												<a href="#" class="fb-link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href="#" class="vk-link"><i class="fa fa-vk" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href="#" class="linkdin-link"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href="#" class="twitter-link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href="#" class="pinterest-link"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+											</li>
+											<li>
+												<a href="#" class="googleplus-link"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+											</li>
+										</ul>
+									</div>
+									<div class="tab-list-feature">
+										<ul class="nav nav-tabs" role="tablist">
+											<li role="presentation" class="active">
+												<a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Details</a>
+											</li>
+                      <li role="presentation">
+												<a href="#location" aria-controls="location" role="tab" data-toggle="tab">AD Info</a>
+											</li>
+											<li role="presentation">
+												<a href="javascript:{document.getElementById('likes').submit()}"><i class="fa fa-thumbs-up active"></i> <span class="hidetext">Like {{ publish.vote_total }}</span></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-9">
+								<div class="tab-content">
+                   <div class="profile-edit tab-pane fade in active" id="overview">
+                      <h2 class="heading-md">Laptop Details</h2>
+                      <p>Below are the given details about the laptop</p><hr><br>
+                      <div class="short-features">
+                         <!-- Heading Area -->
+                         <div class="col-sm-12 col-md-12 col-xs-12 no-padding">
+                            <label>Description:</label> <h4>{{ publish.description }}</h4>
+                         </div><br><br>
+
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Condition:</label> {{ publish.condition }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Brand:</label> {{ publish.brand }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Model:</label>{{ publish.model }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Year:</label> {{ publish.year }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Storage:</label> {{ publish.storage }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Type:</label> {{ publish.type }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Ram:</label> {{ publish.ram }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Procesor:</label> {{ publish.procesor }}
+                         </div>
+                         <div class="col-sm-6 col-md-6 col-xs-12 no-padding">
+                            <label>Location:</label> {{ publish.address }}
+                         </div>
+
+                         <div id="mapid">
+                             <script>
+                             var mymap = L.map('mapid').setView([{{ publish.location_lat }}, {{ publish.location_lon }}], 12);
+                             var marker = L.marker([{{ publish.location_lat }}, {{ publish.location_lon }}]).addTo(mymap);
+                             L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=dVv9EcA0CgewnZmmRobm', {
+                                         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                               maxZoom: 18,
+                               id: 'mapbox/streets-v11',
+                               tileSize: 512,
+                               zoomOffset: -1,
+                               accessToken: 'your.mapbox.access.token'
+                             }).addTo(mymap);
+                             var popup = L.popup();
+
+                             function onMapClick(e) {
+                               popup
+                               .setLatLng(e.latlng)
+                               .setContent("You clicked the map at " + e.latlng.toString())
+                               .openOn(mymap);
+                             }
+
+                             mymap.on('click', onMapClick);
+                             </script>
+
+                          </div>
+                      </div>
+
+                   </div>
+                   <div class="profile-edit tab-pane fade" id="location">
+                      <h2 class="heading-md">Ad & Owner information</h2>
+                      <p>Here are the Owner and Ad Information</p><hr><br>
+                      <div class="short-features">
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Owner :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                            {% if publish.owner.profile.full_name %}
+                                {{ publish.owner.profile.full_name }}<br>
+                            {% else %}
+                                 {{ publish.owner }}<br>
+                            {% endif %}
+                            <div class="user-info-card">
+                               <div class="user-photo col-md-3 col-sm-3  col-xs-4">
+                                 {% if publish.owner.profile.image.url %}
+                                   <img src="{{ publish.owner.profile.image.url }}" alt="">
+                                 {% else %}
+                                    <img src="{% static 'images\default.png' %}" alt="logo">
+                                 {% endif %}
+                               </div>
+                               <div class="user-information no-padding col-md-8 col-sm-9 col-xs-8">
+                                 <div class="popup">
+                                  <span><h5>{{ publish.owner }}</h5></span>
+                                 </div>
+                                  <div class="item-date">
+                                     <span class="ad-pub">Published on: {{ publish.pub_date }}</span>
+                                  </div>
+                               </div>
+                            </div>
+                          </div>
+                        </div><br>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>AD ID :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                            {{ publish.id }}
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Owner Email :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.email %}
+                              {{ publish.owner.email }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Tel No :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.profile.tel %}
+                              {{ publish.owner.profile.tel }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Owner Profession :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.profile.you_are %}
+                              {{ publish.owner.profile.you_are }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Country :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.profile.country %}
+                              {{ publish.owner.profile.country }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>City :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.profile.city %}
+                              {{ publish.owner.profile.city }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                          <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 no-padding">
+                            <label>Address :</label>
+                          </div>
+                          <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 ">
+                            {% if publish.owner.profile.address %}
+                              {{ publish.owner.profile.address }}
+                            {% else %}
+                               -
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+								</div>
+								</div>
+						</div>
+						</div>
+					</div>
+
+
+
+
+
+
+<br><br>
+				<section class="populer-vehicles">
+					<div class="container">
+						<div class="populer-head">
+							<h4 class="h4-24">Related Laptops</h4>
+						</div>
+            {% for related in related|slice:":4" %}
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 ">
+               <div class="category-grid-box-1">
+                  <!-- Image Box -->
+                  <div class="image">
+                     <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                           <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+                           <li data-target="#carousel-2" data-slide-to="1"></li>
+                           <li data-target="#carousel-2" data-slide-to="2"></li>
+                           <li data-target="#carousel-2" data-slide-to="3"></li>
+                           <li data-target="#carousel-2" data-slide-to="4"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                           <div class="item active"> <img src="{{ related.image1.url }}" alt="Image" > </div>
+                           <!-- <div class="item"> <img src="{{ related.image2.url }}" alt="Image"> </div>
+                           <div class="item"> <img src="{{ related.image3.url }}" alt="Image"> </div>
+                           <div class="item"> <img src="{{ related.image4.url }}" alt="Image"> </div>
+                           <div class="item"> <img src="{{ related.image5.url }}" alt="Image"> </div> -->
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <!-- Short Description -->
+
+                  <div class="short-description-1 ">
+                    <!-- Ad Title -->
+                    <h3>
+                       <a title="" href="{% url 'details' related.id %}">{{ related.title }}</a>
+                    </h3>
+                    <!-- Location -->
+
+                    <div class="row">
+                      <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="left">
+                        <p class="location"><i class="fa fa-map-marker"></i>{{ related.city }}</p>
+                      </div>
+                    </div>
+
+                     <!-- Category Title -->
+
+                       <div class="ad-info-1">
+                          <ul class="">
+                            <div class="row">
+                              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                                <div class="row">
+                                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                    <li><i class="flaticon-check-square"></i><a href="#">{{ related.category }}</a> </li>
+                                  </div>
+                                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 " align="left">
+                                    <li><i class="fa fa-laptop"></i><a href="#">{{ related.type }}</a> </li>
+                                  </div>
+                               </div>
+
+                               <div class="row">
+                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                     <li> <i class="fa fa-home"></i><a href="#">{{ related.brand }}</a> </li>
+                                 </div>
+                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                   <li> <i class="fa fa-laptop"></i><a href="#">{{ related.model }}</a> </li>
+                                 </div>
+                                </div>
+                                 <div class="row">
+                                   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                     <li> <i class="fa fa-laptop"></i><a href="#">{{ related.procesor }}</a> </li>
+                                   </div>
+                                   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                       <li> <i class="fa fa-free-code-camp"></i><a href="#">{{ related.storage }}</a> </li>
+                                   </div>
+                                 </div>
+
+                              </div>
+                            </div>
+                          </ul>
+                       </div><br>
+                     <div class="row">
+                       <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+                          <i class="fa fa-user"></i> &nbsp{{ related.owner }}
+                       </div>
+                       <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7" align="right">
+                         <p class="location"><i class="fa fa-clock-o"></i>{{ related.pub_date }}</p>
+                       </div>
+                     </div>
+                  </div>
+                  <!-- Ad Meta Stats -->
+                  <div class="ad-info-1">
+                     <ul>
+                       <div class="row">
+                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="row">
+                              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" align="left">
+                                <li> <i class="fa fa-thumbs-up"></i><span class="rating-count"> {{ related.vote_total }} Liked</span></li>
+                              </div>
+                              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" align="left">
+                                <h3>
+                                   <a class="ad-price">Rs-{{ related.price }}</a>
+                                </h3>
+                              </div>
+                            </div>
+                         </div>
+                       </div>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-2 col-lg-2 col-sm-2">
+
+            </div>
+            </div>
+
+            {% endfor%}
+						<div class="col-xs-12 populer-bdr"></div>
+
+				</section>
+
+
+
+	</body>
+  <script>
+
+  function myFunction() {
+   var popup = document.getElementById("myPopup");
+   popup.classList.toggle("show");
+  }
+  </script>
+  <form id="likes" action="{% url 'likes' publish.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="" value="">
+  </form>
+  <form action="{% url 'delete' publish.id %}" method="POST" id="delete">
+    {% csrf_token %}
+    <input type="hidden" name="" value="">
+  </form>
+</html>
+{% endblock %}

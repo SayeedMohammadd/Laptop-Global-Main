@@ -1,0 +1,185 @@
+
+{% load crispy_forms_tags %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-Prediction</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" >
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/global.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:400,300%7CLibre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
+
+
+
+</header>
+<body>
+  <section class="all-vehicles-wrapper pred">
+    <div class="offer-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12">
+          <div class="all-vehicle">
+            <h2><span> </span> Laptop Value Prediction</h2>
+            <p>
+              Lorem ipsum dolor sit amet, onsectetuer adipiscing elitcommodo ligula eget dolor. Aenean massa. Cum sociis natoque tibus et magnis dis parturient montes.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="payment-method">
+            <h4><a href="{% url 'index' %}">Back to Home</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="main-content-area clearfix">
+     <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+     <section class="we_do-wrap-pred">
+       <div class="container-fluid">
+         <div class="row">
+           <div class="col-xs-12  col-md-5 car-drive-right-pred">
+             <div class="car-pic-pred">
+                     <img src="{% static 'assets/images/PredictionImg.jpg' %}" alt="PredictionImg">
+             </div>
+           </div>
+           <div class="col-xs-12  col-md-7 we-do-right-pred">
+             <div class="post-ad-form postdetails">
+                <div class="heading-panel">
+                   <h3 class="main-title text-left">
+                      Predict Laptop Market Value {{predict_value}}
+                   </h3>
+                </div>
+                <p class="lead">Enter the Required Specification of your Laptop </p>
+                {% if error  %}
+                 <center><label style="color:red">{{ error }}</label></center>
+                {% endif %}
+
+                <form action="/publishing/results" class="submit-form" method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.company|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                       {{ form.cpu|as_crispy_field }}
+                  </div>
+               </div>
+               <div class="row">
+                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                     {{ form.screensize|as_crispy_field }}
+                </div>
+             </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.type|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.ram|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.weight|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.hdd|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.ssd|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.gpu|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                        {{ form.os|as_crispy_field }}
+                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                       {{ form.ips|as_crispy_field }}
+                  </div>
+               </div>
+               <div class="row">
+                <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                     {{ form.resolution|as_crispy_field }}
+                </div>
+             </div>
+             <div class="row">
+              <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                   {{ form.touchscreen|as_crispy_field }}
+              </div>
+           </div>
+               
+                {% if successful_submit %}
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("exampleModal").modal('show');
+      });
+  </script>
+  {% endif %}
+
+                <input type="reset" value="Clear" class="btn pull-left btn-danger">
+                <input type="submit" class="btn btn-primary pull-right" name="Publish My Ad">
+             </form>
+          </div>
+
+           </div>
+         </div>
+       </div>
+     </section>
+  <footer id="footer" class="bdr-0">
+    <div class="primary-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="about-us-footer">
+              <h5 class="view-title-style">About Us</h5>
+              <p>
+                Envato is proudly based in Melbourne, Australia, but our people and community live and work from all over the world.
+              </p>
+              <p>
+                We believe good ideas deserve a chance to grow. We believe people deserve to earn a living doing what they love.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 text-center footer-img-gap">
+            <a href="{% url 'index' %}" class="footer-logo"><img src="{% static 'assets/images/Mylogo.png' %}" alt="lets drive" /></a>
+          </div>
+          <div class="col-xs-12 col-sm-4 text-right contact-info-footer">
+            <h5 class="view-title-style">Contact Us</h5>
+              <address>
+                  PO Box: 67, Kurunegala<span class="line-break"></span>
+                  Address: 67, Kurunegala<span class="line-break"></span>
+
+                  Sri Lanka <span class="line-break"></span>
+                  Email:<a href="mailto:buddhika.a.mahesh@gmail.com"> buddhika.a.mahesh@gmail.com</a><span class="line-break"></span>
+                  Phone: <a href="tel:94769093843">+94 76 9093843</a><span class="line-break"></span>
+              </address>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <div class="container">
+        <span>LaptopGlobal © {% now "Y" %} - All Rights Reserved</span>
+      </div>
+    </div>
+
+  </footer>
+</body>

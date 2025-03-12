@@ -1,0 +1,104 @@
+{% include 'common/navibar.html' %}
+{% load static %}
+
+<link rel="icon" href="images\favicon.ico" type="image/x-icon">
+<!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- =-=-=-=-=-=-= Bootstrap CSS Style =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\bootstrap.css' %}">
+<!-- =-=-=-=-=-=-= Template CSS Style =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\style.css' %}">
+<!-- =-=-=-=-=-=-= Font Awesome =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\font-awesome.css' %}" type="text/css">
+<!-- =-=-=-=-=-=-= Flat Icon =-=-=-=-=-=-= -->
+<link href="{% static 'css\flaticon.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= Et Line Fonts =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\et-line-fonts.css' %}" type="text/css">
+<!-- =-=-=-=-=-=-= Menu Drop Down =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\forest-menu.css' %}" type="text/css">
+<!-- =-=-=-=-=-=-= Animation =-=-=-=-=-=-= -->
+<link rel="stylesheet" href="{% static 'css\animate.min.css' %}" type="text/css">
+<!-- =-=-=-=-=-=-= Select Options =-=-=-=-=-=-= -->
+<link href="{% static 'css\select2.min.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= noUiSlider =-=-=-=-=-=-= -->
+<link href="{% static 'css\nouislider.min.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= Listing Slider =-=-=-=-=-=-= -->
+<link href="{% static 'css\slider.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= Owl carousel =-=-=-=-=-=-= -->
+<link rel="stylesheet" type="text/css" href="{% static 'css\owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css\owl.theme.css' %}">
+<!-- =-=-=-=-=-=-= Check boxes =-=-=-=-=-=-= -->
+<link href="{% static 'skins\minimal\minimal.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= Responsive Media =-=-=-=-=-=-= -->
+<link href="{% static 'css\responsive-media.css' %}" rel="stylesheet">
+<!-- =-=-=-=-=-=-= Template Color =-=-=-=-=-=-= -->
+<link rel="stylesheet" id="color" href="{% static 'css\colors\defualt.css' %}">
+
+
+
+
+
+
+<script src="js\modernizr.js"></script>
+
+  <link rel="icon" href="{% static 'images/favicon.ico'  %}" type="image/x-icon">
+
+  <link href="{% static 'skins/minimal/minimal.css'  %}" rel="stylesheet">
+
+  <script src="{% static 'js/modernizr.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap Core Css  -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- Jquery Easing -->
+  <script src="{% static 'js/easing.js' %}"></script>
+  <!-- Menu Hover  -->
+  <script src="{% static 'js/forest-megamenu.js' %}"></script>
+  <!-- Jquery Appear Plugin -->
+  <script src="{% static 'js/jquery.appear.min.js' %}"></script>
+  <!-- Numbers Animation   -->
+  <script src="{% static 'js/jquery.countTo.js' %}"></script>
+  <!-- Jquery Smooth Scroll  -->
+  <script src="{% static 'js/jquery.smoothscroll.js' %}"></script>
+  <!-- Jquery Select Options  -->
+  <script src="{% static 'js/select2.min.js' %}"></script>
+  <!-- noUiSlider -->
+  <script src="{% static 'js/nouislider.all.min.js' %}"></script>
+  <!-- Carousel Slider  -->
+  <script src="{% static 'js/carousel.min.js' %}"></script>
+  <script src="{% static 'js/slide.js' %}"></script>
+  <!-- Image Loaded  -->
+  <script src="{% static 'js/imagesloaded.js' %}"></script>
+  <script src="{% static 'js/isotope.min.js' %}"></script>
+  <!-- CheckBoxes  -->
+  <script src="{% static 'js/icheck.min.js' %}"></script>
+  <!-- Jquery Migration  -->
+  <script src="{% static 'js/jquery-migrate.min.js' %}"></script>
+  <!-- Sticky Bar  -->
+  <script src="{% static 'js/theia-sticky-sidebar.js' %}"></script>
+  <!-- Style Switcher -->
+  <script src="{% static 'js/color-switcher.js' %}"></script>
+  <!-- Template Core JS -->
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script type="text/javascript">
+     (function($) {
+      "use strict";
+      $(".minimal-category").slice(0, 12).show();
+      $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $(".minimal-category:hidden").slice(0, 4).slideDown();
+        if ($(".minimal-category:hidden").length == 0) {
+          $("#load").fadeOut('slow');
+        }
+        $('html,body').animate({
+          scrollTop: $(this).offset().top
+        }, 1500);
+      });
+     })(jQuery);
+  </script>
+
+
+
+{% block content %}
+{% endblock %}
+
+{% include 'common/footer.html' %}

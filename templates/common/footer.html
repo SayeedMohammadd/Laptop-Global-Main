@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- footer Section -->
+
+<footer id="footer" class="bdr-0">
+  <div class="primary-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="about-us-footer">
+            <h5 class="view-title-style">About Us</h5>
+            <p>
+              Laptop Global is a laptop Sales web application based on machine learning technology.
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center footer-img-gap">
+          <a href="{% url 'index' %}" class="footer-logo"><img src="{% static 'assets/images/Mylogo.png' %}" alt="lets drive" /></a>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-right contact-info-footer">
+          <h5 class="view-title-style">Contact Us</h5>
+          <address>
+            PO Box: 67, Kurunegala<span class="line-break"></span>
+            Address: 67, Kurunegala<span class="line-break"></span>
+            
+            Sri Lanka <span class="line-break"></span>
+            Email:<a href="mailto:buddhika.a.mahesh@gmail.com"> buddhika.a.mahesh@gmail.com</a><span class="line-break"></span>
+            Phone: <a href="tel:94769093843">+94 76 9093843</a><span class="line-break"></span>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom text-center">
+    <div class="container">
+      <span>Buddhika Mahesh - LaptopGlobal © {% now "Y" %} - All Rights Reserved</span>
+    </div>
+  </div>
+</footer>

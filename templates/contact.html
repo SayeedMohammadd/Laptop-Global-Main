@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<header>
+  <title>Contact Us</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>Contact Us</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              Contact Us
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+
+<section class="contact-us-wrapper">
+  <div class="contact-us">
+      <!-- Main Container -->
+      <div class="container">
+         <!-- Row -->
+         <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 no-padding commentForm">
+               <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+                  <div>
+                    {% if name  %}
+                      <h2 class="text-center">Thank You For Contacting Us {{name}}</h2>
+                    {% else %}
+                    <div class="heading-panel">
+                       <h3 class="main-title text-center">
+                          Send Us a Message
+                       </h3>
+                    </div>
+                    {% endif %}
+                     <form method="post" action="{% url 'contact' %}" class="contact-form">
+                       {% csrf_token %}
+                        <div class="row">
+                         <div class="col-lg-6 col-md-6 col-xs-12">
+                              <div class="input-text-wrap">
+                                 <label>Name</label>
+                                 <input type= "text" placeholder="Name" id="name" name="name" class="form-control" required="">
+                              </div>
+                              <div class="input-text-wrap">
+                                 <label>Email</label>
+                                 <input type="email" placeholder="Email" id="email" name="email" class="form-control" required="">
+                              </div>
+                            <div class="input-text-wrap">
+                                 <label>Subject</label>
+                                 <input type="text" placeholder="Subject" id="subject" name="subject" class="form-control" required="">
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-xs-12">
+                              <div class="form-group">
+                                 <label>Message</label>
+                                 <textarea cols="12" rows="7" placeholder="Message..." id="message" name="message" class="form-control" required=""></textarea>
+                              </div>
+                           </div>
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <button  type="submit" class="orange-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i>Send Message</button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                  <div class="">
+                    <div class="heading-panel">
+                       <h3 class="main-title text-center">
+                          Contact Info
+                       </h3>
+                    </div>
+                     <div class="contactInfo">
+                       PO Box: 67, Kurunegala<span class="line-break"></span>
+                       Address: 67, Kurunegala<span class="line-break"></span>
+                       Kurunegala <span class="line-break"></span>
+                       Sri Lanka <span class="line-break"></span>
+     									Email:<a href="buddhika.a.mahesh@gmail.com"> buddhika.a.mahesh@gmail.com</a><span class="line-break"></span>
+     									Phone: <a href="tel:+94769093843">+94 769093843</a><span class="line-break"></span>
+     								</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Row End -->
+      </div>
+      </div>
+      <!-- Main Container End -->
+  </section>
+
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+  <html>
+  <head>
+   <title>Type-Based Location Map</title>
+   <section class="banner2 banner-margin-zero">
+     <div class="container">
+       <div class="row">
+         <div class="col-xs-12 col-sm-6 ">
+           <h1>Type-Based Location Map</h1>
+         </div>
+         <div class="col-xs-12 col-sm-6">
+           <ol class="breadcrumb">
+             <li>
+               <a href="{% url 'index' %}">Home</a>
+             </li>
+             <li class="active">
+               Location Map
+             </li>
+           </ol>
+         </div>
+       </div>
+     </div>
+   </section>
+  </head>
+
+  <body>
+  {{ nodes|safe }}
+  </body>
+  </html>
+  {% endblock %}

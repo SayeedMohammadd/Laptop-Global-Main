@@ -1,0 +1,407 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<title>Avehiz-Home</title>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <header>
+
+
+
+    <section class="main-search parallex ">
+       <h1>Avehiz Home</h1>
+      <div class="container">
+         <div class="search-container ">
+
+            <!-- Form -->
+            <form action="{% url 'search' %}">
+               <!-- Search Input -->
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding">
+                  <div class="form-group">
+                     <input type="text" class="form-control banner-icon-search" name="keyword" placeholder="Search...." value="">
+                  </div>
+               </div>
+
+               <!-- Search Brand -->
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding">
+                  <div class="form-group">
+                     <select class="category form-control" name="category">
+                       <option label="Select Category" value="{{ searched.category }}"></option>
+                       <option value="New">New</option>
+                       <option value="Used">Used</option>
+                     </select>
+                  </div>
+               </div>
+               <!-- Search Transmition -->
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding">
+                 <div class="form-group">
+                    <input type="text" class="form-control" name="model" placeholder="Model" value="">
+                 </div>
+               </div>
+               <!-- Search furl -->
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding"  name="category">
+                 <div class="form-group">
+                    <input type="number" class="form-control" name="year" placeholder="Model Year" value="">
+                 </div>
+               </div>
+               <!-- Search Location -->
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding"  name="category">
+                 <div class="form-group">
+                    <input type="text" class="form-control" name="city" placeholder="City" value="">
+                 </div>
+               </div>
+               <div class="col-md-2 col-sm-4 col-xs-12 no-padding">
+                  <div class="form-group form-action">
+                     <button type="submit" class="btn btn-theme btn-search-submit">Search</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+
+    </section>
+    <div class="small-breadcrumb">
+       <div class="container">
+          <div class=" breadcrumb-link">
+             <ul>
+                <li><a class="active" href="{% url 'index' %}">Home</a></li>
+             </ul>
+          </div>
+       </div>
+      </header>
+      <body>
+
+      <!-- =-=-=-=-=-=-= Home Banner 2 End =-=-=-=-=-=-= -->
+      <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <div class="main-content-area clearfix back">
+             <section class="custom-padding popular-categories">
+               <form class="" action="{% url 'type' %}" method="GET">
+                <!-- Main Container -->
+                <div class="heading-panel">
+                   <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+                      <!-- Main Title -->
+                      <h1 class="main-title">Select by Category</h1>
+                      <!-- Short Description -->
+                  </div>
+                </div>
+
+                <div class="container">
+                   <!-- Row -->
+
+                   <div class="row">
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\saden.jpg' %}">
+                            <button type="submit" name="sedan" value="sedan" class="type_button"><h4><a>Sedan</a></h4></button>
+                            <strong>1,265 Jobs</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\SUV.jpg' %}">
+                            <button type="submit" name="suv" value="suv" class="type_button"><h4><a>SUV</a></h4></button>
+                            <strong>1,265 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\coupe.jpg' %}">
+                            <button type="submit" name="coupe" value="coupe" class="type_button"><h4><a>Coupe</a></h4></button>
+                            <strong>6,213 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\pickup.jpg' %}">
+                            <button type="submit" name="pickup" value="pickup" class="type_button"><h4><a>Pickup</a></h4></button>
+                            <strong>3,750 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\cuvc.jpg' %}">
+                            <button type="submit" name="CUV/Crossover" value="CUV/Crossover" class="type_button"><h4><a>Crossover & CUV</a></h4></button>
+                            <strong>5,913 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\convertible.jpg' %}">
+                            <button type="submit" name="Convertible" value="Convertible" class="type_button"><h4><a>Convertible</a></h4></button>
+                            <strong>9,942 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\harchback.jpg' %}">
+                            <button type="submit" name="Hatchback" value="Hatchback" class="type_button"><h4><a>Hatchback</a></h4></button>
+                            <strong>3,891 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\minivan.jpg' %}">
+                            <button type="submit" name="MPV/Minivan" value="MPV/Minivan" class="type_button"><h4><a>MPV & Minivan</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\station.jpeg' %}">
+                            <button type="submit" name="Station Wagon" value="Station Wagon" class="type_button"><h4><a>Station Wagon & Estate</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\van.jpg' %}">
+                            <button type="submit" name="van" value="van" class="type_button"><h4><a>Van</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\bus.jpeg' %}">
+
+                            <button type="submit" name="bus" value="bus" class="type_button"><h4><a>Bus</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\lorry.jpg' %}">
+                            <button type="submit" name="lorry" value="lorry" class="type_button"><h4><a>Lorry</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\bike.jpg' %}">
+                            <button type="submit" name="motorbike" value="motorbike" class="type_button"><h4><a>Motorbike</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <!-- Category Grid  -->
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\scooter.jpeg' %}">
+                            <button type="submit" name="scooter" value="scooter" class="type_button"><h4><a>Scooter</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                      <div class="col-md-3 col-xs-12 col-sm-6">
+                         <div class="box">
+                            <img alt="img" src="{% static 'images\types\threewheeler.jpeg' %}">
+                            <button type="submit" name="Three-Wheeler" value="Three-Wheeler" class="type_button"><h4><a>Three-Wheeler</a></h4></button>
+                            <strong>7,418 Ads</strong>
+                         </div>
+                      </div>
+                   </div>
+                   <!-- Row End -->
+                   </div>
+                </form>
+                <!-- Main Container End -->
+             </section>
+
+         <section class="custom-padding gray">
+            <!-- Main Container -->
+            <div class="container">
+              <div class="heading-panel-recentads">
+                 <div class="col-xs-12 col-md-12 col-sm-12 text-center">
+                    <!-- Main Title -->
+                    <h1>Recent Ads</h1>
+                    <!-- Short Description -->
+                </div>
+              </div>
+               <!-- Row -->
+               <div class="row">
+                  <!-- Heading Area -->
+                  <!-- Middle Content Box -->
+                  <div class="col-md-12 col-xs-12 col-sm-12">
+                         {% for publish in publish|slice:":6" %}
+
+                                           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 ">
+                                              <div class="category-grid-box-1 ">
+                                                 <!-- Image Box -->
+                                                 <div class="image">
+                                                    <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
+                                                       <!-- Indicators -->
+                                                       <ol class="carousel-indicators">
+                                                          <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+                                                          <li data-target="#carousel-2" data-slide-to="1"></li>
+                                                          <li data-target="#carousel-2" data-slide-to="2"></li>
+                                                          <li data-target="#carousel-2" data-slide-to="3"></li>
+                                                          <li data-target="#carousel-2" data-slide-to="4"></li>
+                                                       </ol>
+                                                       <!-- Wrapper for slides -->
+                                                       <div class="carousel-inner">
+                                                          <div class="item active"> <img src="{{ publish.image1.url }}" alt="Image" > </div>
+                                                          <div class="item"> <img src="{{ publish.image2.url }}" alt="Image"> </div>
+                                                          <div class="item"> <img src="{{ publish.image3.url }}" alt="Image"> </div>
+                                                          <div class="item"> <img src="{{ publish.image4.url }}" alt="Image"> </div>
+                                                          <div class="item"> <img src="{{ publish.image5.url }}" alt="Image"> </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+
+
+                                                 <!-- Short Description -->
+
+                                                 <div class="short-description-1 ">
+                                                   <!-- Ad Title -->
+                                                   <h3>
+                                                      <a title="" href="{% url 'details' publish.id %}">{{ publish.title }}</a>
+                                                   </h3>
+                                                   <!-- Location -->
+
+                                                   <div class="row">
+                                                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="left">
+                                                       <p class="location"><i class="fa fa-map-marker"></i>{{ publish.city }}</p>
+                                                     </div>
+                                                   </div>
+
+                                                    <!-- Category Title -->
+
+                                                      <div class="ad-info-1">
+                                                         <ul class="">
+                                                           <div class="row">
+                                                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+                                                               <div class="row">
+                                                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                                                   <li><i class="flaticon-check-square"></i><a href="#">{{ publish.category }}</a> </li>
+                                                                 </div>
+                                                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 " align="left">
+                                                                   <li><i class="fa fa-university"></i><a href="#">{{ publish.type }}</a> </li>
+                                                                 </div>
+                                                              </div>
+
+                                                              <div class="row">
+                                                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                                                    <li> <i class="fa fa-home"></i><a href="#">{{ publish.brand }}</a> </li>
+                                                                </div>
+                                                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                                                  <li> <i class="fa fa-car"></i><a href="#">{{ publish.model }}</a> </li>
+                                                                </div>
+                                                               </div>
+                                                                <div class="row">
+                                                                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                                                    <li> <i class="fa fa-gear"></i><a href="#">{{ publish.transmission }}</a> </li>
+                                                                  </div>
+                                                                  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+                                                                      <li> <i class="fa fa-free-code-camp"></i><a href="#">{{ publish.fuel }}</a> </li>
+                                                                  </div>
+                                                                </div>
+
+                                                             </div>
+                                                           </div>
+                                                         </ul>
+                                                      </div><br>
+                                                    <div class="row">
+                                                      <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+                                                         <i class="fa fa-user"></i> &nbsp{{ publish.owner }}
+                                                      </div>
+                                                      <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7" align="right">
+                                                        <p class="location"><i class="fa fa-clock-o"></i>{{ publish.pub_date }}</p>
+                                                      </div>
+                                                    </div>
+                                                 </div>
+                                                 <!-- Ad Meta Stats -->
+                                                 <div class="ad-info-1">
+                                                    <ul>
+                                                      <div class="row">
+                                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                                           <div class="row">
+                                                             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" align="left">
+                                                               <li> <i class="fa fa-thumbs-up"></i><span class="rating-count"> {{ publish.vote_total }} Liked</span></li>
+                                                             </div>
+                                                             <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" align="left">
+                                                               <h3>
+                                                                  <a class="ad-price">Rs-{{ publish.price }}</a>
+                                                               </h3>
+                                                             </div>
+                                                           </div>
+                                                        </div>
+                                                      </div>
+                                                    </ul>
+                                                 </div>
+                                              </div>
+                                           </div>
+                         {% endfor %}
+
+
+
+                  </div>
+                  <!-- Middle Content Box End -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+         </section>
+         <!-- =-=-=-=-=-=-= Trending Ads End =-=-=-=-=-=-= -->
+
+         <!-- =-=-=-=-=-=-= Featured Ad Parallex =-=-=-=-=-=-= -->
+         <section class="parallex bg-3 featured-ads">
+            <div class="container">
+               <!-- Container -->
+               <div class="container">
+                  <div class="col-md-8 col-sm-6 no-padding">
+                     <div class="app-text-section">
+                        <h5>Featured Ads</h5>
+                        <h3>Get more exposure </h3>
+                        <ul>
+                           <li>Find nearby cars in your network with Scholar</li>
+                           <li>Browse real hirers reviews to know why choose Scholar</li>
+                           <li>Rent a car so easy with a tap !</li>
+                           <li>Rent a car so easy with a tap !</li>
+                        </ul>
+                        <button class="btn btn-lg btn-theme"> Join Us now <i class="fa fa-refresh"></i> </button>
+                     </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 no-padding">
+                     <div class="pricing-fancy ">
+                        <div class="icon-bg"><i class="flaticon-money-2"></i></div>
+                        <h3><strong>Featured</strong> <span class="thin">Ads</span></h3>
+                        <div class="price-box">
+                           <div class="price-large"> <span class="dollartext">$</span>1.99<span class="monthtext">/month</span> </div>
+                           <p>Regulary <del>$5.00</del></p>
+                           <a href="#" class="btn btn-lg btn-theme">Submit Featured Ad</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- Container /- -->
+            </div>
+         </section>
+         <!-- =-=-=-=-=-=-= Featured Ad Parallex End =-=-=-=-=-=-= -->
+      </div>
+      <!-- Main Content Area End -->
+      <!-- Post Ad Sticky -->
+      <a href="{% url 'publishing' %}" class="sticky-post-button">
+         <span class="sell-icons">
+         <i class="flaticon-transport-9"></i>
+         </span>
+         <h4>SELL</h4>
+      </a>
+<img src="{% static 'images\footer-bg1.jpg' %}" class="footer_image">
+   </body>
+</html>
+
+
+      {% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<title>LaptopGlobal-About</title>
+<header>
+
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>About</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              About LaptopGlobal
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<div class="main-content-area clearfix">
+   <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+   <section class="section-padding">
+      <!-- Main Container -->
+      <div class="container">
+         <!-- Row -->
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-7 col-xs-12">
+               <div class="about-us-content about">
+                  <div class="heading-panel">
+                     <h3 class="main-title text-center">
+                        About Laptop Global
+                     </h3>
+                  </div>
+                  <h2></h2>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                  <p> It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It has survived not only five centuries, but also the leap into  publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>Hmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambledit to make a type specimen It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
+               <div class="google-maps mb-100 map">
+                  <iframe src="https://maps.google.com/maps?q=laptop%20global&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>
+            </div>
+         </div>
+         <!-- Row End -->
+      </div>
+      <!-- Main Container End -->
+   </section>
+
+   <div class="awards-wrapper">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-sm-3">
+           <div class="awards">
+             <strong class="customers-text">1234 </strong><small>/   Happy Customers</small>
+           </div>
+         </div>
+         <div class="col-sm-3">
+           <div class="awards">
+             <strong class="luxury-text">612 </strong><small> /   Laptops</small>
+           </div>
+         </div>
+         <div class="col-sm-3">
+           <div class="awards">
+             <strong class="deals-text">2460 </strong><small> /   Deals per year</small>
+           </div>
+         </div>
+         <div class="col-sm-3">
+           <div class="awards">
+             <strong class="won-text">132 </strong><small> /   Awards won</small>
+           </div>
+         </div>
+
+       </div>
+     </div>
+   </div>
+</div>
+{% endblock %}

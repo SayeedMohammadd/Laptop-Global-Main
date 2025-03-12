@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-Results</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>Prediction Results</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'predict' %}">Prediction</a>
+            </li>
+            <li class="active">
+              Results
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<body>
+
+</body>
+<div class="main-content-area clearfix">
+  <section class="section-padding prediction ">
+     <!-- Main Container -->
+     <div class="container">
+        <!-- Row -->
+        <div class="row">
+           <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+              <!-- end post-padding -->
+              <div class="post-ad-form postdetails">
+                 <div class="heading-panel">
+                    <h3 class="main-title text-left">
+                       Laptop Global Prediction Results
+                    </h3>
+                 </div>
+                 <p class="lead">Here is the Laptop Global predicted Market Value for Your Laptop according to the Provided Details...</p>
+                 {% if error  %}
+                  <center><label style="color:red">{{error}}</label></center>
+                 {% endif %}
+                 {{ form.media }}
+                 <br><br>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Company Name</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{company}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop Type</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                       
+                        <p class="pred_rst">{{type}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop Ram</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        
+                        <p class="pred_rst">{{ram}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop Weight(in Kg)</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{weight}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop CPU</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                       
+                        <p class="pred_rst">{{cpu}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop HDD(in GB)</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        <p class="pred_rst">{{hdd}}</p>
+                       
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop SSD(in GB)</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        <p class="pred_rst">{{ssd}}</p>
+                       
+                      </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop OS</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <p class="pred_rst">{{os}}</p>
+                      </div>
+                    </div>
+                 </div>
+                 <!-- end row -->
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <label>Laptop GPU</label>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                        <p class="pred_rst">{{gpu}}</p>
+                        
+                      </div>
+                    </div>
+                 </div>
+                 <hr><hr><hr>
+                 <div class="row">
+                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <h3 class="pred_rst_price">Our Predicted Value</h3>
+                      </div>
+                      <div class="col-md-6 col-lg-6 col-xs-6 col-sm-6">
+                           <h3 class="pred_rst_price">රු&nbsp {{predict_value}}</h3>
+                      </div>
+                    </div>
+                 </div>
+           </div>
+        </div>
+     </div>
+  </section>
+</div>
+
+{% endblock %}

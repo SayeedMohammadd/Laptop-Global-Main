@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load static %}
+<header>
+  <title>LaptopGlobal-{{ user.username }}</title>
+  <section class="banner2 banner-margin-zero">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <h1>{{ user.username }}</h1>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <ol class="breadcrumb">
+            <li>
+              <a href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="active">
+              {{ user.username }} &nbsp profile
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+   <body>
+      <!-- =-=-=-=-=-=-= Main Content Area =-=-=-=-=-=-= -->
+      <div class="main-content-area clearfix">
+         <!-- =-=-=-=-=-=-= Latest Ads =-=-=-=-=-=-= -->
+         <section class="section-padding gray">
+            <!-- Main Container -->
+            <div class="container">
+               <!-- Row -->
+               <div class="row">
+                  <!-- Middle Content Area -->
+                  <div class="col-md-4 col-sm-12 col-xs-12 leftbar-stick blog-sidebar">
+                     <!-- Sidebar Widgets -->
+                     <div class="user-profile">
+                        <a href=""><img src="{{ user.profile.image.url }}" alt=""></a>
+                        <div class="profile-detail">
+                           <h6>{{ user.username }}</h6>
+                           <ul class="contact-details">
+                              <li>
+                                 <i class="fa fa-map-marker"></i>
+                                 {% if user.profile.address %}
+                                 {{ user.profile.address }}
+                                 {% else %}
+                                 Address Not Set!
+                                 {% endif %}
+                              </li>
+                              <li>
+                                 <i class="fa fa-envelope"></i>{{ user.email }}
+                              </li>
+                              <li>
+                                 <i class="fa fa-clock-o"></i> {{ user.date_joined }}
+                              </li>
+                           </ul>
+                        </div>
+                        <ul>
+
+                           <li><a href="{% url 'userads' user.username %}">My Ads <span class="badge">{{ count }}</span></a></li>
+                        </ul>
+                     </div>
+                     <!-- Categories -->
+                  </div>
+                  <div class="col-md-8 col-sm-12 col-xs-12">
+                     <!-- Row -->
+                     <div class="profile-section margin-bottom-20">
+                        <div class="profile-tabs">
+                           <ul class="nav nav-justified nav-tabs">
+                              <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
+                              <li><a href="#edit" data-toggle="tab">Edit Profile</a></li>
+                           </ul>
+                           <div class="tab-content">
+                              <div class="profile-edit tab-pane fade in active" id="profile">
+                                 <h2 class="heading-md">Manage your Name, ID and Email Addresses.</h2>
+                                 <p>Below are the name and email addresses on file for your account.</p><br>
+                                 <dl class="dl-horizontal">
+                                    <dt><strong>Full name </strong></dt>
+                                    <dd>
+                                      {% if user.profile.full_name %}
+                                         {{ user.profile.full_name }}
+                                      {% else %}
+                                         Full Name Not Set!
+                                      {% endif %}
+                                    </dd>
+                                    <dt><strong>Email Address </strong></dt>
+                                    <dd>
+                                       {{ user.email }}
+                                    </dd>
+                                    <dt><strong>Phone Number </strong></dt>
+                                    <dd>
+                                      {% if user.profile.tel %}
+                                         {{ user.profile.tel }}
+                                      {% else %}
+                                         Telephone Number Not Set!
+                                      {% endif %}
+                                    </dd>
+                                    <dt><strong>Country </strong></dt>
+                                    <dd>
+                                      {% if user.profile.country %}
+                                         {{ user.profile.country }}
+                                      {% else %}
+                                         Country Not Set!
+                                      {% endif %}
+                                    </dd>
+                                    <dt><strong>City </strong></dt>
+                                    <dd>
+                                      {% if user.profile.city %}
+                                         {{ user.profile.city }}
+                                      {% else %}
+                                         City Not Set!
+                                      {% endif %}
+                                    </dd>
+                                    <dt><strong>You are a </strong></dt>
+                                    <dd>
+                                      {% if user.profile.you_are %}
+                                         {{ user.profile.you_are }}
+                                      {% else %}
+                                         Your Profession Not Set!
+                                      {% endif %}
+                                    </dd>
+                                    <dt><strong>Address </strong></dt>
+                                    <dd>
+                                      {% if user.profile.address %}
+                                         {{ user.profile.address }}
+                                      {% else %}
+                                         Address Not Set!
+                                      {% endif %}
+                                    </dd>
+                                 </dl>
+                              </div>
+                              <div class="profile-edit tab-pane fade" id="edit">
+                                 <h2 class="heading-md">Manage Your Account Details</h2>
+                                 <p>Manage Your Account</p><br>
+                                 <div class="clearfix"></div>
+                                 <form method="POST" action="{% url 'profile' user.username %}" enctype="multipart/form-data">
+                                   {% if error  %}
+                                    <center><label style="color:red">{{error}}</label></center>
+                                   {% endif %}
+                                    {% csrf_token %}
+                                    <div class="row">
+                                       <div class="col-md-12 col-sm-12 col-xs-12">
+                                          {{ form.full_name|as_crispy_field }}
+                                        </div>
+                                       <div class="col-md-12 col-sm-12 col-xs-12">
+                                          {{ form.tel|as_crispy_field }}
+                                        </div>
+                                       <div class="col-md-6 col-sm-12 col-xs-12 margin-bottom-20">
+                                          {{ form.country|as_crispy_field }}
+                                       </div>
+                                       <div class="col-md-6 col-sm-12 col-xs-12 margin-bottom-20">
+                                            {{ form.city|as_crispy_field }}
+                                       </div>
+                                       <div class="col-md-6 col-sm-12 col-xs-12 margin-bottom-20">
+                                            {{ form.you_are|as_crispy_field }}
+                                       </div>
+                                       <div class="col-md-12 col-sm-12 col-xs-12">
+                                            {{ form.address|as_crispy_field }}
+                                       </div>
+                                       <div class="col-md-12 col-sm-12 col-xs-12">
+                                            {{ form.image|as_crispy_field }}
+                                       </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                       <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                       </div>
+                                       <div class="col-md-4 col-sm-4 col-xs-12 text-right">
+                                          <button type="submit" class="btn btn-primary  btn-sm">Update My Info</button>
+                                       </div>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Row End -->
+                  </div>
+                  <!-- Middle Content Area  End -->
+               </div>
+               <!-- Row End -->
+            </div>
+            <!-- Main Container End -->
+         </section>
+         <!-- =-=-=-=-=-=-= Ads Archives End =-=-=-=-=-=-= -->
+         <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+
+         <!-- =-=-=-=-=-=-= FOOTER END =-=-=-=-=-=-= -->
+      </div>
+      <!-- Back To Top -->
+
+   </body>
+
+
+
+{% endblock %}

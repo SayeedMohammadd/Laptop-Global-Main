@@ -1,0 +1,561 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>LaptopGlobal</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:400,300%7CLibre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/settings.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/simple-line-icons.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl.carousel.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery-ui.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.timepicker.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.fancybox.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/jquery.selectBox.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/global.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" >
+		<link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
+		<link rel="stylesheet" type="text/less" href="{% static 'assets/css/skin.less' %}">
+
+	</head>
+
+	<body data-ng-app="themeonApp">
+
+
+		<!--Page Wrapper Start-->
+		<div id="wrapper" class="home" >
+
+			<!--banner Section start-->
+			<section class="banner">
+				<div id="rev_slider_wrapper">
+					<div id="rev_slider_202_1_wrapper" class="rev_slider_wrapper " data-alias="concept1" style="background-color:#000000;padding:0px;">
+						<!-- START REVOLUTION SLIDER 5.1.1RC fullscreen mode -->
+						<div id="rev_slider_202_1" class="rev_slider" style="display:none;" data-version="5.1.1RC">
+							<ul>
+								<!-- SLIDE  -->
+								<li data-index="rs-672" >
+									<!-- MAIN IMAGE -->
+									<img src="{% static 'images\kv.jpeg' %}" alt="" class="rev-slidebg" data-no-retina>
+								</li>
+								<li data-index="rs-672" >
+									<!-- MAIN IMAGE -->
+									<img src="{% static 'images\MainImg4.jpg' %}" alt="" class="rev-slidebg" data-no-retina>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+	<!-- search box -->
+				<div class="reserve-form">
+					<div class="container">
+						<div class="row reserve-form-wrap">
+							<div class="form-head clearfix">
+								<div class="location">
+									<h2>Search</h2>
+								</div>
+								<div class="availability">
+									<h2> Total {{ count }} <span>Available</span></h2>
+								</div>
+							</div>
+
+							<form action="{% url 'search' %}">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+
+										<label>Keyword</label>
+										<div class="input-wrap clearfix">
+											<input type="text" class="form-control" name="keyword" placeholder="Search...." value="">
+										</div>
+										<label>Condition</label>
+										<div class="input-wrap clearfix">
+											<div class="form-group ">
+												 <select class=" form-control" name="category">
+													 <option label="Select Category" value="{{ searched.category }}"></option>
+													 <option value="New">New</option>
+													 <option value="Used">Used</option>
+												 </select>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<label>Model</label>
+										<div class="input-wrap clearfix">
+											<input type="text" class="form-control" name="model" placeholder="Model" value="">
+										</div>
+
+										<label>Year</label>
+										<div class="input-wrap clearfix">
+											<input type="text" class="form-control" name="year" placeholder="Model Year" value="">
+										</div>
+
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<label>City</label>
+										<div class="input-wrap clearfix">
+											  <input type="text" class="form-control" name="city" placeholder="City" value="">
+										</div>
+
+
+									</div>
+								</div>
+								<button class="find-car" style="background: rgb(199, 23, 23)">
+									<i class="fa fa-search" aria-hidden="true"></i>search laptops
+								</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+	<!-- search box end-->
+
+			</section>
+			<!--banner Section End-->
+
+			<!--Content Area Start-->
+			<div id="content">
+				<!-- get our best offer section start-->
+				<section class="get-bestoffer">
+
+					<div class="container">
+						<div class="row">
+							<h2> Our <span>best services</span></h2>
+							<div class="get-left col-xs-12 col-sm-4">
+								<ul>
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"><i class="fa fa-laptop" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>ALL Kind of Laptops</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													You can Advertise any kind of Laptops on Laptop Global.
+												</p>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"> <i class="fa fa-briefcase" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>Used or Brand New</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													We have both Brand New and Perfectly used Condition Laptops.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"><i class="fa fa-laptop" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>Available {{count}} Laptops</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													Every Minute New Laptops Advertisements get Posted
+												</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-sm-4 text-center car-center-pic" style="text-align: center;">
+								<!-- <img   src="{% static 'assets/images/lap.jpg' %}" alt=""> -->
+							</div>
+							<div class="get-left get-right text-right col-xs-12  col-sm-4">
+								<ul>
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>Any Locations</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													Where are You? Doesn't Matter . We have Laptops Everywhere
+												</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"><i class="fa fa-money" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>Value Prediction</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													Real Time Laptop Price Prediction! Our Most Advance Feature will help you to Calculate Any Laptop's value in seconds !  
+												</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="clearfix">
+											<span class="offer-icon"><i class="fa fa-life-saver" aria-hidden="true"></i></span>
+											<div class="offer-details">
+												<h3>Easy Browsing</h3>
+												<div class="divider-dotted">
+
+												</div>
+												<p>
+													We have made browsing through Laptops easier than ever.
+												</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+
+				<!-- we_do-wrap section start here -->
+				<section class="we_do-wrap">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12  col-md-5 car-drive-right">
+								<div class="car-pic">
+
+								</div>
+							</div>
+							<div class="col-xs-12  col-md-7 we-do-right">
+								<div class="we-do-right-wrap">
+									<div class="section-head">
+										<h2>What <strong>we do?</strong></h2>
+									</div>
+									<div class="triangle-divider triangle-gap">
+
+									</div>
+									<div class="we_do-description clearfix">
+										<p>
+											Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,
+										</p>
+										<div class="we-do-right-info  ">
+											<p>
+												Aenean vulputate eleifend tellus. Aenean leo ligula enim porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. llus viverra nulla ut metus variuseros, ultricies sit amtmpula
+											</p>
+
+											<ul class="white-list list-styled">
+												<li>
+													<span> Vestibulum ante ipsum primis in faucibus orci</span>
+												</li>
+												<li>
+													<span> Phasellus leo dolor, tempus non, auc</span>
+												</li>
+												<li>
+													<span>Curabitur ligula sapien, tincidunt hendrerit risus</span>
+												</li>
+											</ul>
+										</div>
+
+										<blockquote class="blockquote  blockquote-warning we-do-blockquote">
+											<p>
+												<span class="blockquote-sign">’’</span>Predict Your Laptop Price within Seconds..
+											</p>
+										</blockquote>
+									</div>
+
+									<ul class="feature-we_do clearfix">
+										<li class="small-item">
+											<i class="fa fa-laptop" aria-hidden="true"></i>All kind of Laptop Ads
+										</li>
+										<li>
+											<i class="fa fa-lock" aria-hidden="true"></i>Easy advertising
+										</li>
+										<li>
+											<i class="fa fa-life-ring" aria-hidden="true"></i>Post Ads on Anytime
+										</li>
+										<li class="small-item">
+											<i class="fa fa-lock" aria-hidden="true"></i>Good Data Security
+										</li>
+										<li >
+											<i class="fa fa-map" aria-hidden="true"></i>Location Map
+										</li>
+										<li>
+											<i class="fa fa-money" aria-hidden="true"></i>Laptop Price Prediction
+										</li>
+									</ul>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+				
+							<div class="rental-per-day">
+								<div class="row">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</section> -->
+				<!-- map section end here -->
+
+				<section class="all-vehicles-wrapper">
+					<div class="offer-overlay"></div>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6 col-xs-12">
+								<div class="all-vehicle">
+									<h2><span> Recent</span> Laptop Ads</h2>
+									<p>
+										Lorem ipsum dolor sit amet, onsectetuer adipiscing elitcommodo ligula eget dolor. Aenean massa. Cum sociis natoque tibus et magnis dis parturient montes.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+								<div class="payment-method">
+									<h4><span> {{ count }}</span> Total Ads</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="filter-wrapper">
+					<div class="container">
+						<div class="row">
+							{% for publish in publish|slice:":6" %}
+							<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 ">
+								 <div class="category-grid-box-1 ">
+										<!-- Image Box -->
+										<div class="image">
+											 <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
+													<!-- Indicators -->
+													<ol class="carousel-indicators">
+														 <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+														 <li data-target="#carousel-2" data-slide-to="1"></li>
+														 <li data-target="#carousel-2" data-slide-to="2"></li>
+														 <li data-target="#carousel-2" data-slide-to="3"></li>
+														 <li data-target="#carousel-2" data-slide-to="4"></li>
+													</ol>
+													<!-- Wrapper for slides -->
+													<div class="carousel-inner">
+														 <div class="item active"> <img src="{{ publish.image1.url }}" alt="Image" > </div>
+														 <!-- <div class="item"> <img src="{{ publish.image2.url }}" alt="Image"> </div>
+														 <div class="item"> <img src="{{ publish.image3.url }}" alt="Image"> </div>
+														 <div class="item"> <img src="{{ publish.image4.url }}" alt="Image"> </div>
+														 <div class="item"> <img src="{{ publish.image5.url }}" alt="Image"> </div> -->
+													</div>
+											 </div>
+										</div>
+
+
+										<!-- Short Description -->
+
+										<div class="short-description-1 ">
+											<!-- Ad Title -->
+											<h3>
+												 <a title="" href="{% url 'details' publish.id %}">{{ publish.title }}</a>
+											</h3>
+											<!-- Location -->
+
+											<div class="row">
+												<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" align="left">
+													<p class="location"><i class="fa fa-map-marker"></i>&nbsp{{ publish.city }}</p>
+												</div>
+											</div><br>
+
+											 <!-- Category Title -->
+
+												 <div class="ad-info-1">
+														<ul class="">
+															<div class="row">
+																<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+
+																	<div class="row">
+																		<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+																			<li><i class="fa fa-life-ring"></i><a href="#">{{ publish.category }}</a> </li>
+																		</div>
+																		<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 " align="left">
+																			<li><i class="fa fa-dot-circle-o"></i><a href="#">{{ publish.type }}</a> </li>
+																		</div>
+																 </div>
+
+																 <div class="row">
+																	 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+																			 <li> <i class="fa fa-home"></i><a href="#">{{ publish.brand }}</a> </li>
+																	 </div>
+																	 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+																		 <li> <i class="fa fa-laptop"></i><a href="#">{{ publish.model }}</a> </li>
+																	 </div>
+																	</div>
+																	 <div class="row">
+																		 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+																			 <li> <i class="fa fa-laptop"></i><a href="#">{{ publish.storage }}</a> </li>
+																		 </div>
+																		 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" align="left">
+																				 <li> <i class="fa fa-fire"></i><a href="#">{{ publish.ram }}</a> </li>
+																		 </div>
+																	 </div>
+
+																</div>
+															</div>
+														</ul>
+												 </div><br>
+											 <div class="row">
+												 <div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+														<p><i class="fa fa-user"></i> &nbsp{{ publish.owner }}</p>
+												 </div>
+												 <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7" align="right">
+													 <p class="location"><i class="fa fa-clock-o"></i>&nbsp{{ publish.pub_date }}</p>
+												 </div>
+											 </div>
+										</div>
+										<!-- Ad Meta Stats -->
+										<div class="ad-info-1">
+											 <ul>
+												 <div class="row">
+													 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+															<div class="row">
+																<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" align="left">
+																	<li> <i class="fa fa-thumbs-up"></i><a> {{ publish.vote_total }} Liked</a></li>
+																</div>
+																<div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" align="right">
+																	<h3>
+																		 <a class="ad-price">Rs-{{ publish.price }}</a>
+																	</h3>
+																</div>
+															</div>
+													 </div>
+												 </div>
+											 </ul>
+										</div>
+								 </div>
+							</div>
+							{% endfor %}
+
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="preview-more">
+									<a href="{% url 'ads' %}" class="button"><i class="fa fa-shopping-basket" aria-hidden="true"></i>Browse all</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</section>
+				<div class="your-dreams-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="your-dreams">
+									<p>
+										Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci.
+									</p>
+									<p>
+										Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.
+									</p>
+									<a href="{% url 'predict' %}" class="orange-btn">Predict Price Now</a>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="brand-logo-wrapper">
+									<span>Check your Laptop's market value</span>
+									<strong>with LaptopGlobal</strong>
+									<strong>now!</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section class="executive-team-wrapper">
+					<div class="awards-wrapper">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="awards">
+										<strong class="customers-text">{{count}} </strong><small>/Ads</small>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="awards">
+										<strong class="luxury-text">{{count}} </strong><small> /   Users </small>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="awards">
+										<strong class="deals-text">{{count}} </strong><small> /   ads per year</small>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="awards">
+										<strong class="won-text">{{count}} </strong><small> /   Awards won</small>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+			</div>
+			<!--Content Area End-->
+
+			<!--Footer Section start-->
+
+
+			<!--Footer Section End-->
+		</div>
+
+
+		<!--Page Wrapper End-->
+		<script type="text/javascript" src="{% static 'assets/js/angular.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery-ui.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery.timepicker.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/bootstrap.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/less.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/owl.carousel.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/app.js' %}"></script>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery.selectBox.js' %}"></script>
+		<script type="text/javascript" src=" {% static 'assets/js/jquery.fancybox.js' %}"></script>
+
+		<!-- revolution slider Js -->
+		<script type="text/javascript" src="{% static 'assets/js//jquery.themepunch.tools.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery.themepunch.revolution.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/js/jquery.revolution.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.video.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.slideanims.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.actions.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.kenburn.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.navigation.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.migration.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'assets/extensions/revolution.extension.parallax.min.js' %}"></script>
+		<!--  revolution slider Js -->
+		    <!-- map                     -->
+		    <script type="text/javascript" src="{% static 'assets/js/map.js' %}"></script>
+		     <!-- map                     -->
+		<script type="text/javascript" src="{% static 'assets/js/site.js' %}"></script>
+
+	</body>
+</html>
+{% endblock %}
